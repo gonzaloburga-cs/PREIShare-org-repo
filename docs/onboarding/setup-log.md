@@ -82,20 +82,29 @@ I will not paste secrets into AI tools. I will not keep AI wording I cannot expl
 **git --version:** git version 2.50.1 (Apple Git-155)
 
 ```test
-git config user.name: Gonzalo Burga (PASS)
+git config user.name: Gonzalo Burga 
 
-git config user.email: gonzalo.burga11@gmail.com (PASS)
+git config user.email: gonzalo.burga11@gmail.com
 
-git remote -v: (PASS)
+git remote -v: 
 origin  https://github.com/gonzaloburga-cs/PREIShare-org-repo.git (fetch)
 origin  https://github.com/gonzaloburga-cs/PREIShare-org-repo.git (push)
 upstream        https://github.com/EdTeachForLearning/PREIShare-org-repo.git (fetch)
 upstream        https://github.com/EdTeachForLearning/PREIShare-org-repo.git (push)
 
-Default branch: main (PASS)
+Default branch: main 
 
 git status: On branch main
 Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
-(PASS)
+
+### Checklist
+- Accounts — PASS
+- Git identity — PASS
+- PREIShare fork — PASS
+- Clone path recorded and clone succeeded — PASS
+- origin = my fork — PASS
+- upstream = team repo — PASS
+- Default branch — PASS
+- git status clean — PASS
