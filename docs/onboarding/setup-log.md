@@ -89,8 +89,8 @@ git config user.email: gonzalo.burga11@gmail.com
 git remote -v: 
 origin  https://github.com/gonzaloburga-cs/PREIShare-org-repo.git (fetch)
 origin  https://github.com/gonzaloburga-cs/PREIShare-org-repo.git (push)
-upstream        https://github.com/EdTeachForLearning/PREIShare-org-repo.git (fetch)
-upstream        https://github.com/EdTeachForLearning/PREIShare-org-repo.git (push)
+upstream        https://github.com/EdTechForLearning/PREIShare-org-repo.git (fetch)
+upstream        https://github.com/EdTechForLearning/PREIShare-org-repo.git (push)
 
 Default branch: main 
 
