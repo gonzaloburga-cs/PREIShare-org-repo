@@ -1,0 +1,42 @@
+---
+description: PREIshare stack, safe edits, conventions, secrets, and agent workflow
+alwaysApply: true
+---
+
+# PREIshare
+
+Single package at repo root (`preishare-org-repo`). Prefer the smallest diff. No drive-by refactors. Do not invent scripts or folders that are not already in `docs/onboarding/repo-map.md`.
+
+## Stack
+
+- TypeScript (strict), React 19, TanStack Start, TanStack Router (file-based, `src/routes/`)
+- Vite 8, Tailwind CSS v4, npm
+- Planned data layer: Supabase, PostgreSQL, pgvector (not in the tree yet — do not create those folders unasked)
+- Collaboration: Git + GitHub
+
+## Safe edit surfaces
+
+- First-touch: `docs/onboarding/` (`setup-log.md`, `repo-map.md`). `README.md` only if a mentor asks.
+- Do not edit yet: `package.json`, `package-lock.json`, `vite.config.ts`, `tsconfig.json`, `tsr.config.json`, `src/routeTree.gen.ts`, `.gitignore`, `.cta.json`, `.vscode/`
+- Contribute via fork + PR. Do not push to the team repo (`upstream`).
+
+## Coding conventions
+
+- File routes: export `Route` via `createFileRoute` / `createRootRoute`; default-export components.
+- Tailwind utilities plus CSS variables from `src/styles.css`. Keep the scaffold layout unless a change is justified.
+- Follow existing patterns in `src/components/`. Never hand-edit `src/routeTree.gen.ts`.
+- Env boundaries: `createServerFn` / `createServerOnlyFn` / `createClientOnlyFn`.
+
+## Secrets / safety
+
+- No secrets in git. `.env` is gitignored; do not commit it. No env vars required for the blank scaffold.
+- Server secrets: `process.env` inside handlers/server fns only — never module scope, never `VITE_*`.
+- Client: only `VITE_*` via `import.meta.env`. Secrets must not be `VITE_*`.
+- Do not paste tokens, keys, or `.env` contents into AI tools or docs.
+- No in-repo migrations/DB yet. Do not invent production data edits.
+
+## Agent workflow
+
+- Keep the generated structure. Update `docs/onboarding/repo-map.md` if a path claim is wrong.
+- First PR: tiny, docs-only unless a mentor expands scope. Clear commit message; review before merge.
+- Other tools: same rules live here; see `AGENTS.md` for Intent skill-loading.
