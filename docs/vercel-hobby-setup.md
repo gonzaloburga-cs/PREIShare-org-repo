@@ -9,7 +9,7 @@
 | --- | --- |
 | GitHub repository (you can push) | `https://github.com/gonzaloburga-cs/PREIShare-org-repo` |
 | Instructor collaborator | `thortek` added: yes |
-| Vercel Production URL | TODO — paste the Production domain from the Vercel project (Dashboard → Project → Domains), `https://<project>.vercel.app` |
+| Vercel Production URL | `https://prei-share-org-repo-chi.vercel.app` |
 | Preview URLs | Do **not** submit these to Canvas |
 
 ## Hobby constraints I will keep
@@ -21,5 +21,5 @@
 
 ## First production deploy
 
-- Status: TODO — confirm Ready or Failed in the Vercel dashboard after `main` includes Nitro (`vite.config.ts` has `nitro()` after `tanstackStart()`)
-- Incognito check of Production URL: TODO — pass / fail after the Production URL is filled in
+- Status: Ready
+- Incognito check of Production URL: PASS
