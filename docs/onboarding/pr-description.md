@@ -19,13 +19,22 @@ for a new teammate without touching product runtime code.
 - Followed the plan in `docs/onboarding/first-contribution-plan.md` and implementation notes in
   `docs/onboarding/first-contribution-notes.md`.
 
+## Intended files (this PR)
+
+The Files changed tab should show only these four paths:
+
+1. `CONTRIBUTORS.md` — roster entry (the product change)
+2. `docs/onboarding/first-contribution-plan.md` — onboarding plan (tutorial)
+3. `docs/onboarding/first-contribution-notes.md` — implementation notes (tutorial)
+4. `docs/onboarding/pr-description.md` — this description, kept in the repo for review
+
 ## What reviewers should look at
-- [ ] `CONTRIBUTORS.md` — new entry is accurate, formatted like neighbors, and free of secrets
-- [ ] Diff contains only intended files (no accidental `.env`, build output, or editor junk)
+- [ ] `CONTRIBUTORS.md` — new file; row is accurate (name, handle, date, role) and free of secrets
+- [ ] Diff contains only the four intended files above (no accidental `.env`, build output, or editor junk)
 - [ ] Commit message explains *why* this onboarding change exists
 
 ## Test plan
-1. Open the Files changed tab and confirm only the expected path(s) appear.
+1. Open the Files changed tab and confirm only these four paths appear: `CONTRIBUTORS.md`, `docs/onboarding/first-contribution-plan.md`, `docs/onboarding/first-contribution-notes.md`, `docs/onboarding/pr-description.md`.
 2. Skim `CONTRIBUTORS.md` in the PR diff: name/link/role lines render as valid Markdown.
 3. Search the diff for tokens, passwords, or local absolute paths — expect none.
 4. (Optional) Check out the branch locally and open `CONTRIBUTORS.md` in a Markdown preview.

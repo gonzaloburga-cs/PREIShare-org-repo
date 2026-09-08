@@ -23,16 +23,22 @@
 - Agent wrote this file from the tutorial scaffold and the Cycle 1 review (director: Gonzalo)
 
 ## Final diff summary
-- Paths changed: `CONTRIBUTORS.md`, `docs/onboarding/first-contribution-notes.md` 
-- Paths intentionally NOT changed: `README.md`, `package.json`, `package-lock.json`, `src/**`, `AGENTS.md`, `.cursorrules`, `.cursor/rules/preishare.mdc`, `.gitignore`, `vite.config.ts`, `tsconfig.json`. The agent did not propose those in Cycle 1. There is no “agent tried to edit X; I rejected it” entry for this implementation — the scope constraint held.
+- Paths on the PR vs `main` (Files changed tab):
+  1. `CONTRIBUTORS.md` — product change (plan in-scope)
+  2. `docs/onboarding/first-contribution-plan.md` — tutorial plan file, already on the feature branch
+  3. `docs/onboarding/first-contribution-notes.md` — this file (Cycle 3)
+  4. `docs/onboarding/pr-description.md` — local copy of the GitHub PR body (review asked it to be on the branch)
+- Why extra onboarding files are in the PR: the written plan’s shippable file was `CONTRIBUTORS.md` only. The other three are onboarding/tutorial artifacts so a reviewer can see plan, implementation notes, and PR text next to the roster. They are docs-only, not a second product feature.
+- Paths intentionally NOT changed: `README.md`, `package.json`, `package-lock.json`, `src/**`, `AGENTS.md`, `.cursorrules`, `.cursor/rules/preishare.mdc`, `.gitignore`, `vite.config.ts`, `tsconfig.json`. Cycle 1 did not touch those.
 
 ## Acceptance criteria checklist (from plan)
-- [x] Only in-scope files modified
+- [x] Original plan in-scope file is present: `CONTRIBUTORS.md`
+- [x] PR also includes the three tutorial docs listed above (documented; not app/config)
 - [x] CONTRIBUTORS.md includes accurate name, GitHub, role, date
 - [x] No secrets or personal data beyond what the team expects on GitHub
 - [x] Notes explain agent cycles and review decisions
 - [x] Ready for commit + PR in the next step
 
 ## Risks / open questions
-- `CONTRIBUTORS.md` was still untracked after Cycle 1 review; it must be committed with these notes before the PR.
+- `CONTRIBUTORS.md` was still untracked after Cycle 1 review; it was committed with these notes before the PR.
 - This clone has orientation notes in `docs/onboarding/setup-log.md`, not `team-orientation-notes.md`. The plan already recorded that; do not invent a rename in this PR.
