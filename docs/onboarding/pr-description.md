@@ -31,7 +31,15 @@ The Files changed tab should show only these four paths:
 ## What reviewers should look at
 - [ ] `CONTRIBUTORS.md` — new file; row is accurate (name, handle, date, role) and free of secrets
 - [ ] Diff contains only the four intended files above (no accidental `.env`, build output, or editor junk)
-- [ ] Commit message explains *why* this onboarding change exists
+- [ ] Why this roster exists is stated in **Problem** and **Commit history** below (the original roster commit subject was file-focused; we did not rewrite it)
+
+## Commit history (comment 4)
+
+The team needed my name on `CONTRIBUTORS.md` so reviewers have a named, low-risk first contribution to practice the fork → review → merge path.
+
+- Roster commit `ad23499` subject: `Add contributors row and first-contribution notes` (names files, not why).
+- We are **not** amending that commit. The why lives here and in the PR title.
+- Next similar change should use a subject like: `Add Gonzalo Burga to CONTRIBUTORS.md so the team can review a first onboarding PR`.
 
 ## Test plan
 1. Open the Files changed tab and confirm only these four paths appear: `CONTRIBUTORS.md`, `docs/onboarding/first-contribution-plan.md`, `docs/onboarding/first-contribution-notes.md`, `docs/onboarding/pr-description.md`.
