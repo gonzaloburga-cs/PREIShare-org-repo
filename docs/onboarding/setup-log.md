@@ -73,6 +73,7 @@ I will not paste secrets into AI tools. I will not keep AI wording I cannot expl
 ## 7. Prepare the machine
 
 - GitHub username: gonzaloburga-cs
+- OS: Mac
 - Team repo (upstream) URL: https://github.com/EdTechForLearning/PREIShare-org-repo
 - My fork URL: https://github.com/gonzaloburga-cs/PREIShare-org-repo
 - Close path (`pwd`): /Users/gonzaloburga/projects/PREIShare-org-repo
