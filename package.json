@@ -1,7 +1,9 @@
 {
   "name": "preishare-org-repo",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
+  "description": "Strict TypeScript types for PREIshare investor listings (Sprint 2 Topic 1)",
   "imports": {
     "#/*": "./src/*"
   },
@@ -9,7 +11,8 @@
     "dev": "vite dev --port 3000",
     "generate-routes": "tsr generate",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
