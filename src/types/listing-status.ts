@@ -1,6 +1,6 @@
 /**
  * Closed set of listing lifecycle states from the domain brief / field inventory.
- * Only these exact snake_case strings are allowed—no free text or display labels.
+ * This union is the single source of allowed status spellings—no free text.
  */
 export type ListingStatus =
   | "draft"

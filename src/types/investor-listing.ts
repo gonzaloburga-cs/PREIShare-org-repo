@@ -1,56 +1,57 @@
 import type { Address } from "./address";
 import type { FinancialSummary } from "./financial-summary";
 import type { InvestorContact } from "./investor-contact";
-import type { ListingStatus } from "./listing-status";
 import type { Ownership } from "./ownership";
 import type { PropertyType } from "./property-type";
 
 /**
- * Core PREIshare investor listing.
- * Nested groups compose {@link Address}, {@link FinancialSummary},
- * {@link InvestorContact}, and {@link Ownership}.
+ * Fields every investor listing has, regardless of status.
+ * Nested types stay as composed objects from earlier steps.
  *
  * Source of truth: `docs/domain/investor-listing-domain-brief.md`
- * and `docs/domain/listing-field-inventory.md`.
  */
-export interface InvestorListing {
-  /** Stable unique id for this listing (assigned by the system). */
-  id: string;
+export interface InvestorListingBase {
+  /** Stable identity — do not reassign after create. */
+  readonly id: string;
 
-  /** Short public headline shown in search results and cards. */
+  /** Set once when the row is created. */
+  readonly createdAt: string;
+
+  /** May change when the listing is edited; still not a business key. */
+  readonly updatedAt: string;
+
   title: string;
-
-  /** Longer plain-text description of the investment opportunity. */
   summary: string;
-
-  /** Lifecycle state — only values from {@link ListingStatus}. */
-  status: ListingStatus;
-
-  /** Asset class — only values from {@link PropertyType}. */
   propertyType: PropertyType;
-
-  /** Locatable property address — nested object, not flat street/city fields. */
   address: Address;
-
-  /** Asking price and related metrics — nested object, not a flat askingPrice. */
   financials: FinancialSummary;
-
-  /** One or more people associated with this listing. */
   contacts: InvestorContact[];
-
   /**
    * Must match {@link InvestorContact.id} of one entry in `contacts`.
-   * TypeScript cannot fully enforce "id exists in array" alone;
-   * typed as string so callers pass an id, not a whole loose object.
+   * TypeScript cannot fully enforce "id exists in array" alone.
    */
   primaryContactId: string;
-
-  /** Ownership rows tied to contacts — not free-text owner names. */
   ownership: Ownership[];
-
-  /** ISO-8601 datetime string when the listing was first created. */
-  createdAt: string;
-
-  /** ISO-8601 datetime string when the listing was last updated. */
-  updatedAt: string;
 }
+
+/**
+ * Discriminated union: TypeScript uses `status` to know which shape you have.
+ * `soldAt` is required only when status is `sold` (closed deal in the domain brief).
+ */
+export type InvestorListing =
+  | (InvestorListingBase & {
+      status: "draft" | "published" | "under_offer" | "archived";
+      /** Not used unless the listing is sold. */
+      soldAt?: undefined;
+    })
+  | (InvestorListingBase & {
+      status: "sold";
+      /** ISO-8601 datetime — required when the listing is sold. */
+      soldAt: string;
+    });
+
+/** A listing whose status is the closed deal (`sold`). */
+export type SoldInvestorListing = Extract<InvestorListing, { status: "sold" }>;
+
+/** A listing that is not sold. */
+export type OpenInvestorListing = Exclude<InvestorListing, { status: "sold" }>;
