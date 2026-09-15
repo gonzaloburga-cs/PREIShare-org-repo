@@ -4,6 +4,8 @@ export type { ContactRole, InvestorContact } from "./investor-contact";
 export type {
   InvestorListing,
   InvestorListingBase,
+  NonEmptyContacts,
+  NonEmptyOwnership,
   OpenInvestorListing,
   SoldInvestorListing,
 } from "./investor-listing";

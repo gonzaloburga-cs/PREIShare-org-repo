@@ -35,19 +35,40 @@ export interface InvestorListingBase {
 }
 
 /**
+ * At least one contact — required for investor-facing statuses
+ * (`published`, `under_offer`, `sold`) per the domain brief.
+ */
+export type NonEmptyContacts = [InvestorContact, ...InvestorContact[]];
+
+/**
+ * At least one ownership row — required for investor-facing statuses
+ * per the field inventory.
+ */
+export type NonEmptyOwnership = [Ownership, ...Ownership[]];
+
+/**
  * Discriminated union: TypeScript uses `status` to know which shape you have.
  * `soldAt` is required only when status is `sold` (closed deal in the domain brief).
+ * `draft` / `archived` may have empty contacts or ownership while editors work.
  */
 export type InvestorListing =
   | (InvestorListingBase & {
-      status: "draft" | "published" | "under_offer" | "archived";
+      status: "draft" | "archived";
       /** Not used unless the listing is sold. */
       soldAt?: undefined;
+    })
+  | (InvestorListingBase & {
+      status: "published" | "under_offer";
+      soldAt?: undefined;
+      contacts: NonEmptyContacts;
+      ownership: NonEmptyOwnership;
     })
   | (InvestorListingBase & {
       status: "sold";
       /** ISO-8601 datetime — required when the listing is sold. */
       soldAt: string;
+      contacts: NonEmptyContacts;
+      ownership: NonEmptyOwnership;
     });
 
 /** A listing whose status is the closed deal (`sold`). */
