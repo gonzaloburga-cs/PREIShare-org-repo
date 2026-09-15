@@ -5,6 +5,8 @@
  *
  * Objects are annotated as InvestorListing (a check, not `as` / `any` / @ts-ignore)
  * so tsc is forced to report the violations.
+ *
+ * Excluded from `npm run typecheck` via tsconfig.json `exclude`.
  */
 import type { InvestorListing } from "../types";
 

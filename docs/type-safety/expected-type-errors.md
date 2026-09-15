@@ -32,4 +32,4 @@ Left open on purpose (TypeScript cannot enforce without brands or runtime checks
 ## Notes
 
 - Nested field names in the error file match our types (`region`, `financials.currency`, `contacts[].id` / `role`, `ownership[].contactNameOrId`), so each case isolates one failure instead of failing for leftover tutorial names (`state`, `multi_family`, `ownerName`).
-- `npm run typecheck` is expected to fail while this file is included by `tsconfig.json`.
+- `npm run typecheck` runs `tsc --noEmit` against `tsconfig.json`, which **excludes** `src/fixtures/invalid-listings.errors.ts` so valid sources can pass. Do not “fix” the intentional errors in that file.
