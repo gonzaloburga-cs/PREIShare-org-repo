@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Strict TypeScript types for PREIshare investor listings (Sprint 2 Topic 1)",
+  "description": "PREIshare investor dashboard shell (TanStack Start + TypeScript). Sprint 3 scaffold; dashboard area routes come later.",
   "imports": {
     "#/*": "./src/*"
   },
@@ -11,6 +11,7 @@
     "dev": "vite dev --port 3000",
     "generate-routes": "tsr generate",
     "build": "vite build",
+    "start": "vinxi start",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },
@@ -34,6 +35,7 @@
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^6.0.1",
     "typescript": "^6.0.2",
+    "vinxi": "^0.5.3",
     "vite": "^8.0.0"
   },
   "pnpm": {
