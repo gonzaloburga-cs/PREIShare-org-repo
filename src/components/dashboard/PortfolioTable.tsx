@@ -54,7 +54,7 @@ export function PortfolioTable({
           </p>
         ) : null}
       </div>
-      <div className="portfolio-table__wrap overflow-x-auto">
+      <div className="portfolio-table__wrap dash-table-wrap overflow-x-auto">
         <table className="w-full min-w-[28rem] border-collapse text-left text-sm whitespace-nowrap">
           <thead>
             <tr className="border-b border-[rgba(79,184,178,0.25)] text-[var(--sea-ink-soft)]">
