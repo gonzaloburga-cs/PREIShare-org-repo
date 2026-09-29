@@ -1,20 +1,26 @@
 # PREIshare Investor Dashboard Shell
 
-TanStack Start + TypeScript starter for the PREIshare investor dashboard (Sprint 3).
+Clickable investor dashboard for PREIshare: Home, Portfolio, Deals, and Profile, filled with labeled mock data. TanStack Start and TypeScript, one app at the repository root.
 
-This app already lives at the repository root. It uses the current Vite-based TanStack Start scaffold (`vite.config.ts`), not an older `app.config.ts` / Vinxi starter.
+## Prerequisites
 
-## Setup
+- Node.js and npm. This repo has no pinned Node version (no `engines` field and no `.nvmrc`).
+- No `.env` file is required to run the shell.
 
-1. Install Node.js LTS if needed.
-2. From the project root, run: `npm install`
-3. Start the dev server: `npm run dev`
-4. Open the local URL printed in the terminal (http://localhost:3000).
+## Cold start
 
-## Project notes
+From the repository root:
 
-- Planning docs live in `docs/` (client brief, information architecture, and component plan).
-- File-based routes live under `src/routes/`.
-- The document title is set in `src/routes/__root.tsx`. The starter home page is `src/routes/index.tsx` (`/`).
-- Dashboard area routes (portfolio, deals, profile) are added in a later step. Do not invent them in the scaffold.
-- `npm run typecheck` checks the existing listing types. `npm run build` builds the app.
+1. `npm install`
+2. `npm run dev` — this runs `vite dev --port 3000`
+3. Open the local URL printed in the terminal. If port 3000 is already in use, use the other port Vite prints.
+4. Go to `/dashboard`.
+
+`/` and `/about` are leftover starter pages. They are not the investor demo.
+
+## Docs
+
+- Sprint 3 handoff: [docs/sprint3-handoff.md](docs/sprint3-handoff.md)
+- Architecture decisions: [docs/architecture-decisions.md](docs/architecture-decisions.md)
+
+Optional checks that exist in `package.json`: `npm run typecheck` (`tsc --noEmit`) and `npm run build`. There is no `test` or `lint` script.
