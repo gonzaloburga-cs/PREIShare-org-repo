@@ -1,4 +1,5 @@
 import { Outlet, createFileRoute } from '@tanstack/react-router'
+import { AppShell } from '../components/layout/AppShell'
 
 export const Route = createFileRoute('/dashboard')({
   component: DashboardLayout,
@@ -6,11 +7,8 @@ export const Route = createFileRoute('/dashboard')({
 
 function DashboardLayout() {
   return (
-    <div className="page-wrap px-4 pb-8 pt-14" data-area="dashboard-layout">
-      <p className="max-w-2xl text-base text-[var(--sea-ink-soft)]">
-        PREIshare investor dashboard layout (shell comes next)
-      </p>
+    <AppShell title="Investor Dashboard">
       <Outlet />
-    </div>
+    </AppShell>
   )
 }
