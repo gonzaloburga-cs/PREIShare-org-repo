@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Link } from '@tanstack/react-router'
+import { NavItems } from './NavItems'
 
 type SidebarProps = {
   brandLabel?: string
@@ -16,42 +16,8 @@ export function Sidebar({ brandLabel = 'PREIshare', children }: SidebarProps) {
       <div className="sidebar-brand mb-4 text-lg font-bold text-[var(--sea-ink)]">
         {brandLabel}
       </div>
-      <nav className="sidebar-nav">
-        {/* Placeholder links — full nav config + active states come in the next step */}
-        <ul className="m-0 flex list-none flex-wrap gap-3 p-0 md:flex-col">
-          <li>
-            <Link
-              activeOptions={{ exact: true }}
-              className="text-[var(--sea-ink-soft)] no-underline"
-              to="/dashboard"
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="text-[var(--sea-ink-soft)] no-underline"
-              to="/dashboard/portfolio"
-            >
-              Portfolio
-            </Link>
-          </li>
-          <li>
-            <Link className="text-[var(--sea-ink-soft)] no-underline" to="/dashboard/deals">
-              Deals
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="text-[var(--sea-ink-soft)] no-underline"
-              to="/dashboard/profile"
-            >
-              Profile
-            </Link>
-          </li>
-        </ul>
-        {children}
-      </nav>
+      <NavItems />
+      {children}
     </aside>
   )
 }
