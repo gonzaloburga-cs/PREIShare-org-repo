@@ -1,10 +1,6 @@
 // Single source of truth for investor-facing nav labels, paths, and page titles.
 
-export type DashboardNavPath =
-  | '/dashboard'
-  | '/dashboard/portfolio'
-  | '/dashboard/deals'
-  | '/dashboard/profile'
+export type DashboardNavPath = '/dashboard'
 
 export type NavItemConfig = {
   label: string
@@ -17,21 +13,6 @@ export const dashboardNavItems: NavItemConfig[] = [
     label: 'Home',
     path: '/dashboard',
     title: 'Dashboard overview',
-  },
-  {
-    label: 'Portfolio',
-    path: '/dashboard/portfolio',
-    title: 'Your portfolio',
-  },
-  {
-    label: 'Deals',
-    path: '/dashboard/deals',
-    title: 'Open deals',
-  },
-  {
-    label: 'Profile',
-    path: '/dashboard/profile',
-    title: 'Your profile',
   },
 ]
 
