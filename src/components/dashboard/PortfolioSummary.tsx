@@ -1,83 +1,57 @@
-export type HoldingSnapshot = {
+export type PortfolioHolding = {
   id: string
   name: string
+  /** Display string already formatted for UI, e.g. "$120,000" or "18%" */
   allocationLabel: string
-  valueLabel: string
 }
 
 export type PortfolioSummaryProps = {
-  title?: string
-  totalLabel: string
-  holdings?: HoldingSnapshot[]
-  isSampleData?: boolean
+  /** Architecture field: short heading for the snapshot */
+  headline?: string
+  /** Architecture field: holdings lines (name and allocation or value) */
+  summaryLines: PortfolioHolding[]
+  /** Optional total line for the snapshot */
+  totalLabel?: string
+  /** Architecture field: shown when summaryLines is empty */
+  emptyMessage?: string
 }
 
-export const MOCK_HOLDINGS: HoldingSnapshot[] = [
-  {
-    id: 'h1',
-    name: 'Sample Multifamily Fund A',
-    allocationLabel: '40%',
-    valueLabel: '$120,000',
-  },
-  {
-    id: 'h2',
-    name: 'Sample Industrial Note B',
-    allocationLabel: '35%',
-    valueLabel: '$105,000',
-  },
-  {
-    id: 'h3',
-    name: 'Sample Cash Reserve',
-    allocationLabel: '25%',
-    valueLabel: '$75,000',
-  },
+/** MOCK PLACEHOLDER — replace with real portfolio data in a later sprint */
+export const MOCK_PORTFOLIO_HOLDINGS: PortfolioHolding[] = [
+  { id: 'h1', name: 'Riverfront Multifamily', allocationLabel: '42%' },
+  { id: 'h2', name: 'Cedar Retail Plaza', allocationLabel: '33%' },
+  { id: 'h3', name: 'Harbor Industrial', allocationLabel: '25%' },
 ]
 
 export function PortfolioSummary({
-  title = 'Portfolio summary',
+  headline = 'Portfolio summary',
+  summaryLines,
   totalLabel,
-  holdings = MOCK_HOLDINGS,
-  isSampleData = true,
+  emptyMessage = 'No holdings to show.',
 }: PortfolioSummaryProps) {
   return (
     <section
-      className="portfolio-summary rounded-2xl border border-[rgba(79,184,178,0.25)] px-4 py-4"
+      className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
       aria-labelledby="portfolio-summary-heading"
     >
-      <div className="portfolio-summary__header mb-3">
-        <h2 id="portfolio-summary-heading"className="m-0 text-lg font-semibold text-[var(--sea-ink)]">
-          {title}
-        </h2>
-        {isSampleData ? (
-          <p className="sample-data-banner m-0 mt-1 text-sm text-[var(--sea-ink-soft)]" role="note">
-            Sample data — placeholders only, not live balances
-          </p>
-        ) : null}
-      </div>
-      <p className="portfolio-summary__total m-0 mb-3 flex items-baseline justify-between gap-3">
-        <span className="portfolio-summary__total-label text-sm text-[var(--sea-ink-soft)]">
-          Total (sample)
-        </span>
-        <span className="portfolio-summary__total-value text-xl font-bold text-[var(--sea-ink)]">
-          {totalLabel}
-        </span>
-      </p>
-      <ul className="portfolio-summary__list m-0 list-none space-y-2 p-0">
-        {holdings.map((item) => (
-          <li
-            key={item.id}
-            className="portfolio-summary__row grid grid-cols-[minmax(0,1fr)_3.5rem_6.5rem] items-baseline gap-x-3 text-sm"
-          >
-            <span className="portfolio-summary__name min-w-0 text-[var(--sea-ink)]">{item.name}</span>
-            <span className="portfolio-summary__allocation text-right tabular-nums text-[var(--sea-ink-soft)]">
-              {item.allocationLabel}
-            </span>
-            <span className="portfolio-summary__value text-right font-semibold tabular-nums text-[var(--sea-ink)]">
-              {item.valueLabel}
-            </span>
-          </li>
-        ))}
-      </ul>
+      <h2 id="portfolio-summary-heading" className="text-lg font-semibold text-slate-900">
+        {headline}
+      </h2>
+      {totalLabel ? (
+        <p className="mt-1 text-sm text-slate-600">Total: {totalLabel}</p>
+      ) : null}
+      {summaryLines.length === 0 ? (
+        <p className="mt-4 text-sm text-slate-600">{emptyMessage}</p>
+      ) : (
+        <ul className="mt-4 divide-y divide-slate-100">
+          {summaryLines.map((item) => (
+            <li key={item.id} className="flex items-center justify-between py-2 text-sm">
+              <span className="font-medium text-slate-800">{item.name}</span>
+              <span className="text-slate-600">{item.allocationLabel}</span>
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
   )
 }
