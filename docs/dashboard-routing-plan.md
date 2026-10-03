@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Map investor-facing dashboard URLs to TanStack Start route files. This plan records the tree already in `src/routes`. It does not add new route files.
+Map investor-facing dashboard URLs to TanStack Start route files before any UI generation.
 
 Source requirements: `docs/preishare-dashboard-requirements.md`.
 
@@ -10,66 +10,65 @@ Source requirements: `docs/preishare-dashboard-requirements.md`.
 
 | File / folder | Likely URL | Notes |
 | --- | --- | --- |
-| `src/routes/__root.tsx` | (app root layout) | Shared root for every page. Do not replace it. |
-| `src/routes/index.tsx` | `/` | Starter home. Not an investor screen (requirements §3). |
-| `src/routes/about.tsx` | `/about` | Starter about page. Not an investor screen (requirements §3). |
-| `src/routes/dashboard.tsx` | `/dashboard` | Layout route. Renders `AppShell` and `<Outlet />`. Parent of the investor pages. |
-| `src/routes/dashboard/index.tsx` | `/dashboard` | Index page. Route id in the generated tree is `/dashboard/`. |
-| `src/routes/dashboard/portfolio.tsx` | `/dashboard/portfolio` | Child of the dashboard layout. |
-| `src/routes/dashboard/deals.tsx` | `/dashboard/deals` | Child of the dashboard layout. |
-| `src/routes/dashboard/profile.tsx` | `/dashboard/profile` | Child of the dashboard layout. |
-| `src/routeTree.gen.ts` | (generated) | Records the parent and child links above. Do not edit by hand. |
+| `src/routes/__root.tsx` | (app root layout) | Existing shared root. Do not replace it. |
+| `src/routes/index.tsx` | `/` | Existing starter home. Not an investor screen (requirements §3). |
+| `src/routes/about.tsx` | `/about` | Existing starter about page. Not an investor screen (requirements §3). |
+| `src/routes/dashboard.tsx` | `/dashboard` | Flat file found in the tree today. This plan does not treat it as the layout file to create. |
+| `src/routes/dashboard/index.tsx` | `/dashboard` | Home page file. Route id in the generated tree is `/dashboard/`. Kept as the separate index page. |
+| `src/routes/dashboard/portfolio.tsx` | `/dashboard/portfolio` | Path found on disk. The file map below still names this as a later nav target, not a finished screen. |
+| `src/routes/dashboard/deals.tsx` | `/dashboard/deals` | Path found on disk. Planned child for the Deals label. |
+| `src/routes/dashboard/profile.tsx` | `/dashboard/profile` | Path found on disk. Planned child for the Profile label. |
+| `src/routeTree.gen.ts` | (generated) | Generated route tree. Do not edit by hand. |
 | `src/router.tsx` | (router setup) | Loads `routeTree` from `src/routeTree.gen.ts`. |
 
-`src/routes/dashboard/` is the only route folder. There is no `src/routes/dashboard/route.tsx`.
+`src/routes/dashboard/route.tsx` is not in the tree yet. A later step creates that layout file. The flat `src/routes/dashboard.tsx` found above does not replace that plan.
 
 ## Planned dashboard route tree
 
 ```text
 /dashboard                 → layout route (shell: header + sidebar + outlet)
 /dashboard                 → index (investor home: metrics, portfolio summary, activity)
-/dashboard/portfolio       → child (holdings table; mock rows)
-/dashboard/deals           → child (listing rows; detail expands on this page)
-/dashboard/profile         → child (read-only sample profile)
+/dashboard/portfolio       → placeholder child (later nav target; holdings not finished here)
+/dashboard/deals           → placeholder child (later nav target; listing rows)
+/dashboard/profile         → placeholder child (later nav target; sample profile)
 ```
 
 Requirements §3 names these four screens and marks each "Yes" for this sprint. Requirements §5 requires "file-based routes under `/dashboard`: home, portfolio, deals, and profile." Requirements §2 goal 2 is "Navigate among Home, Portfolio, Deals, and Profile without getting lost."
 
 Recent activity is not a fifth URL. Requirements §4 calls it an "activity region" that is a "list of recent items on the home page."
 
-## File map (exact files for this tree)
+## File map (exact files to create in a later step)
 
-These files already exist. A later step must not create a second layout.
-
-| URL | Role | File | Wraps / renders |
+| URL | Role | File to create | Wraps / renders |
 | --- | --- | --- | --- |
-| `/dashboard` | Layout route | `src/routes/dashboard.tsx` | Shared dashboard chrome (`AppShell`: header, sidebar, main). Renders the child via `<Outlet />`. |
-| `/dashboard` | Index page | `src/routes/dashboard/index.tsx` | Investor home: sample metric cards, portfolio summary, and recent-activity list. |
-| `/dashboard/portfolio` | Child page | `src/routes/dashboard/portfolio.tsx` | Holdings table: property name, place, and value. Empty-state copy when the list is empty. |
-| `/dashboard/deals` | Child page | `src/routes/dashboard/deals.tsx` | Sample listing rows. Details stay on this page. |
-| `/dashboard/profile` | Child page | `src/routes/dashboard/profile.tsx` | Read-only sample profile card. |
+| `/dashboard` | Layout route | `src/routes/dashboard/route.tsx` | Shared dashboard chrome (header, sidebar, main). Renders the child via Outlet. Create this layout later. |
+| `/dashboard` | Index page | `src/routes/dashboard/index.tsx` | Separate home page: investor dashboard home content (metrics, portfolio summary, activity). Not the layout file. |
+| `/dashboard/portfolio` | Placeholder | `src/routes/dashboard/portfolio.tsx` | Later nav target. Stub page so the Portfolio link has a real path. Full holdings UI is not this step. |
+| `/dashboard/deals` | Placeholder | `src/routes/dashboard/deals.tsx` | Later nav target. Stub page for Deals. Detail stays on this path, not a new URL. |
+| `/dashboard/profile` | Placeholder | `src/routes/dashboard/profile.tsx` | Later nav target. Stub page for Profile. |
 
-This app's layout file is `src/routes/dashboard.tsx`, not `src/routes/dashboard/route.tsx`. The generated tree imports `./routes/dashboard`. Adding `route.tsx` beside it would be a second layout, not a rename.
+`src/routes/dashboard/route.tsx` is the planned layout file. Do not skip it because a flat `src/routes/dashboard.tsx` already exists.
 
 ## Layout vs page responsibilities
 
-- **Layout (`src/routes/dashboard.tsx`)**: persistent chrome only. Header, sidebar, and the main outlet. No metric cards and no activity list in this file.
-- **Index (`src/routes/dashboard/index.tsx`)**: dashboard home composition (summary widgets and the activity list). Renders inside the parent layout.
-- **Child pages**: real nav targets for Portfolio, Deals, and Profile. Content is mock or fixture data. Full live UI is later. Deal detail does not get its own file (requirements §3: "Deal detail is not its own URL").
+- **Layout (`src/routes/dashboard/route.tsx`)**: persistent navigation regions only (header, sidebar or mobile nav slot, main outlet). No metric card business content. This file is created in a later step.
+- **Index (`src/routes/dashboard/index.tsx`)**: dashboard home composition (summary widgets and the activity list). Uses the parent layout. This stays a separate page from the layout file.
+- **Placeholders**: minimal pages so nav links have real targets. Portfolio is the first later nav target. Deals and Profile are the other later targets. Full UI comes in later topics. Deal detail does not get its own file (requirements §3: "Deal detail is not its own URL").
 
-## Navigation labels (for sidebar / mobile nav)
+## Navigation labels (for sidebar / mobile nav later)
 
 | Label | Path | Requirement link |
 | --- | --- | --- |
 | Home | `/dashboard` | §2 goal 3 and §3: home base with portfolio metrics and the activity list on this page. §6: an investor can open `/dashboard`. |
-| Portfolio | `/dashboard/portfolio` | §3: holdings table (property name, place, value) and empty-state copy if the list is empty. |
-| Deals | `/dashboard/deals` | §3: sample listing rows (title, status, city, region, asking price in USD). Details expand on this page. |
-| Profile | `/dashboard/profile` | §3: read-only sample profile card (name and a contact channel). |
+| Portfolio | `/dashboard/portfolio` | §3: deeper portfolio tools. Later nav target, not a finished screen in this plan. |
+| Deals | `/dashboard/deals` | §3: sample listing rows (title, status, city, region, asking price in USD). Later nav target. Details expand on this page. |
+| Profile | `/dashboard/profile` | §3: read-only sample profile card (name and a contact channel). Later nav target. |
 
 Requirements §4: the sidebar lists Home, Portfolio, Deals, and Profile, and "the current URL looks selected." Requirements §5: "Clear navigation labels an investor would understand: Home, Portfolio, Deals, Profile."
 
 ## Out of scope for this plan
 
+- Creating the route files in this step (the map names them; a later step creates them)
 - A route for recent activity, login, trades, or deal detail
 - Component prop designs and styling tokens
 - Auth guards and loader data shape
@@ -78,13 +77,13 @@ Requirements §4: the sidebar lists Home, Portfolio, Deals, and Profile, and "th
 
 ## Success criteria for implementation steps
 
-- Visiting `/dashboard` shows the layout shell and the home index content region.
-- `/dashboard/portfolio`, `/dashboard/deals`, and `/dashboard/profile` render inside the same layout, not as a full-page replacement of the shell.
+- Visiting `/dashboard` shows the layout shell from `src/routes/dashboard/route.tsx` and the home content from `src/routes/dashboard/index.tsx`.
+- Child placeholder paths, including `/dashboard/portfolio`, render inside the same layout, not as a full-page replacement of the shell.
 - No unrelated existing routes (`/`, `/about`, `__root.tsx`) were deleted.
 - The URL list matches requirements §3. No extra investor path was added.
 
 ## Open questions
 
 - **Why not `/dashboard/activity`?** Resolved. Requirements §4 puts recent activity on the home page. A separate activity URL would not trace to a required screen.
-- **Why not `src/routes/dashboard/route.tsx`?** Resolved. This repo's layout file is `src/routes/dashboard.tsx`. The generated route tree already parents the child routes there.
-- **Are the child pages still stubs?** No. They already render mock or fixture content. They stay in this tree as the nav targets. Live data is a later sprint, not a new URL.
+- **Which file is the layout to create?** Resolved. `src/routes/dashboard/route.tsx` is the layout route to create later. `src/routes/dashboard/index.tsx` stays the separate home page. A flat `src/routes/dashboard.tsx` found in the inventory does not cancel that planned path.
+- **Is Portfolio a finished screen in this plan?** No. `/dashboard/portfolio` is a later nav target so the sidebar has a real path. Full holdings UI is a later topic.
