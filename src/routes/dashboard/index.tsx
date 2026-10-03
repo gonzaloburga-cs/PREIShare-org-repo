@@ -1,32 +1,20 @@
+// Default page at exactly /dashboard.
 import { createFileRoute } from '@tanstack/react-router'
-import { PortfolioSummary, MOCK_HOLDINGS } from '../../components/dashboard/PortfolioSummary'
-import { RecentActivity, MOCK_ACTIVITY } from '../../components/dashboard/RecentActivity'
-import { StatsCard } from '../../components/dashboard/StatsCard'
 
 export const Route = createFileRoute('/dashboard/')({
-  component: DashboardHomePage,
+  component: DashboardHome,
 })
 
-function DashboardHomePage() {
+function DashboardHome() {
   return (
-    <main>
-      <h1 className="display-title mb-3 text-3xl font-bold tracking-tight text-[var(--sea-ink)]">
-        Dashboard overview
-      </h1>
-      <div className="dashboard-home">
-        <p className="sample-data-banner mb-4 text-sm text-[var(--sea-ink-soft)]" role="note">
-          Demo shell — all figures are placeholders
-        </p>
-        <div className="dashboard-home__stats dash-card-grid">
-          <StatsCard label="Total portfolio value" value="$300,000" hint="Sample total" />
-          <StatsCard label="Open deals" value="3" hint="Sample count" />
-          <StatsCard label="Contributions YTD" value="$24,000" hint="Sample YTD" />
-        </div>
-        <div className="dashboard-home__panels dash-card-grid mt-4">
-          <PortfolioSummary totalLabel="$300,000" holdings={MOCK_HOLDINGS} />
-          <RecentActivity items={MOCK_ACTIVITY} />
-        </div>
-      </div>
-    </main>
+    <section aria-labelledby="dashboard-home-heading">
+      <h2 id="dashboard-home-heading" className="text-xl font-semibold">
+        Welcome back
+      </h2>
+      <p className="mt-2 max-w-prose text-slate-600">
+        Portfolio metrics and recent activity will appear here. This placeholder
+        confirms the /dashboard route tree is wired correctly.
+      </p>
+    </section>
   )
 }
