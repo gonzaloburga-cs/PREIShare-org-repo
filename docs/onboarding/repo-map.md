@@ -64,7 +64,7 @@ No `apps/`, `packages/`, or `.github/` directories exist at the root.
 
 - Supabase or data config paths: **not found yet** (no `supabase/` folder; no `src/lib/supabase.ts` even though `.cursorrules` mentions it)
 - Migrations / SQL / schema-related paths: **not found yet** (no `migrations/`, `prisma/`, `drizzle/`, or `*.sql`)
-- Env examples (NOT secret values): **none found** — no `.env.example`. `.gitignore` lists `.env` so a real secrets file should not be committed. `AGENTS.md` says the blank scaffold needs no env vars yet.
+- Env examples (NOT secret values): `.env.example` (placeholders only) and `docs/setup/supabase-env-checklist.md`. `.gitignore` ignores `.env`, `.env.*` (except `.env.example`), and `*.local` (so `.env.local` stays untracked). Do not commit a real `.env`.
 - Notes on what a beginner should not touch in production data: there is no in-repo database to change. Do not create or commit a real `.env` with secrets. Do not invent production Supabase/Postgres edits; that layer is not in this tree yet.
 
 ## 5. Tooling and CI
