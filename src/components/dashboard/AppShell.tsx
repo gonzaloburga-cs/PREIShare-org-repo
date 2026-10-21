@@ -7,15 +7,20 @@ export type AppShellProps = {
   children: ReactNode
   /** Forwarded to Header */
   title?: string
+  /** Forwarded to Header, such as a sign-out button */
+  actions?: ReactNode
 }
 
 /**
  * Shared frame for all /dashboard routes: header, nav, and main slot.
  */
-export function AppShell({ children, title }: AppShellProps) {
+export function AppShell({ children, title, actions }: AppShellProps) {
   return (
     <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
-      <Header {...(title !== undefined ? { title } : {})} />
+      <Header
+        {...(title !== undefined ? { title } : {})}
+        {...(actions !== undefined ? { actions } : {})}
+      />
       <MobileNav />
 
       <div className="flex min-h-0 flex-1">

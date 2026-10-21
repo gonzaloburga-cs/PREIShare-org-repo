@@ -55,6 +55,8 @@ No `apps/`, `packages/`, or `.github/` directories exist at the root.
   - `src/routes/__root.tsx` — root HTML shell, Header, Footer, CSS
   - `src/routes/index.tsx` — home page (`/`)
   - `src/routes/about.tsx` — about page (`/about`)
+  - `src/routes/auth/login.tsx` — sponsor log in (`/auth/login`)
+  - `src/routes/auth/signup.tsx` — sponsor sign up (`/auth/signup`)
   - `src/components/` — `Header.tsx`, `Footer.tsx`, `ThemeToggle.tsx`
   - `src/styles.css` — Tailwind / global styles
   - `src/lib/user.ts` — stub `getUser()` that returns `null`

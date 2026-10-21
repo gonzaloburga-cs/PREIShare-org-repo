@@ -16,6 +16,29 @@ function readServerUrl(): string {
 }
 
 /**
+ * Anon-key client for sign-in and sign-up. No user token yet, and no service-role key.
+ * Call this only from a server function.
+ */
+export function createAuthServerSupabaseClient() {
+  const url = readServerUrl()
+  const anonKey = process.env.VITE_SUPABASE_ANON_KEY
+
+  if (!anonKey) {
+    throw new Error(
+      'Missing VITE_SUPABASE_ANON_KEY. See docs/setup/supabase-env-checklist.md',
+    )
+  }
+
+  return createClient<Database>(url, anonKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false,
+      detectSessionInUrl: false,
+    },
+  })
+}
+
+/**
  * Sponsor-scoped server client. Uses the anon key plus the signed-in user's
  * access token, so property_listings policies (`owner_id = auth.uid()`) apply.
  * Call this from a server function for list and create.
