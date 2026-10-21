@@ -23,7 +23,8 @@ export type ListingFormProps = {
   isSubmitting?: boolean
 }
 
-const inputClassName = 'rounded-md border border-slate-300 px-3 py-2'
+const inputClassName =
+  'rounded-md border border-slate-300 px-3 py-2 text-[var(--sea-ink-soft)]'
 
 function fieldMessage(
   fieldErrors: ListingFieldErrors | undefined,
@@ -130,7 +131,7 @@ export function ListingForm({
         error={fieldMessage(fieldErrors, 'price')}
       />
 
-      <div className="flex flex-col gap-1 text-sm text-slate-700">
+      <div className="flex flex-col gap-1 text-sm text-[var(--sea-ink-soft)]">
         <label htmlFor="listing-status">Status</label>
         <select
           id="listing-status"
@@ -151,7 +152,7 @@ export function ListingForm({
         ) : null}
       </div>
 
-      <div className="flex flex-col gap-1 text-sm text-slate-700">
+      <div className="flex flex-col gap-1 text-sm text-[var(--sea-ink-soft)]">
         <label htmlFor="listing-description">Description</label>
         <textarea
           id="listing-description"
@@ -203,7 +204,7 @@ function Field({
   step?: string
 }) {
   return (
-    <div className="flex flex-col gap-1 text-sm text-slate-700">
+    <div className="flex flex-col gap-1 text-sm text-[var(--sea-ink-soft)]">
       <label htmlFor={id}>{label}</label>
       <input
         id={id}

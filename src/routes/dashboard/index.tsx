@@ -27,13 +27,13 @@ function DashboardHomePage() {
     <div className="flex flex-col gap-6">
       <header className="space-y-1">
         <h1 className="text-2xl font-semibold tracking-tight">Investor dashboard</h1>
-        <p className="text-sm text-slate-600">
+        <p className="text-sm text-[var(--sea-ink-soft)]">
           Your PREIshare home base for portfolio metrics and recent activity.
         </p>
-        <p className="text-sm text-slate-500">Mock data — not live balances.</p>
+        <p className="text-sm text-[var(--sea-ink-soft)]">Mock data — not live balances.</p>
       </header>
 
-      <section aria-label="Key metrics" className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <section aria-label="Key metrics" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {demoMetrics.map((metric) => (
           <MetricCard
             key={metric.label}
@@ -42,23 +42,17 @@ function DashboardHomePage() {
             hint={metric.hint}
           />
         ))}
+        <PortfolioSummary
+          summaryLines={MOCK_PORTFOLIO_HOLDINGS}
+          totalLabel="$300,000"
+          emptyMessage="No portfolio holdings to show yet. When your account is linked, summaries will appear here."
+        />
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-5">
-        <div className="lg:col-span-3">
-          <PortfolioSummary
-            summaryLines={MOCK_PORTFOLIO_HOLDINGS}
-            totalLabel="$300,000"
-            emptyMessage="No portfolio holdings to show yet. When your account is linked, summaries will appear here."
-          />
-        </div>
-        <div className="lg:col-span-2">
-          <RecentActivity
-            items={MOCK_RECENT_ACTIVITY}
-            emptyMessage="No recent activity yet. Distributions, documents, and updates will list here."
-          />
-        </div>
-      </section>
+      <RecentActivity
+        items={MOCK_RECENT_ACTIVITY}
+        emptyMessage="No recent activity yet. Distributions, documents, and updates will list here."
+      />
     </div>
   )
 }

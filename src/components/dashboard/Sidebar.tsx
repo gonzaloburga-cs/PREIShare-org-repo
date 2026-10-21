@@ -39,7 +39,7 @@ export function Sidebar({ items = dashboardSidebarItems }: SidebarProps) {
               className="block rounded px-3 py-2 text-sm text-slate-800 hover:bg-slate-200"
               activeProps={{
                 className:
-                  'block rounded bg-slate-200 px-3 py-2 text-sm font-semibold text-slate-900',
+                  'block rounded bg-slate-300 px-3 py-2 text-sm font-semibold !text-slate-900',
               }}
             >
               {item.label}

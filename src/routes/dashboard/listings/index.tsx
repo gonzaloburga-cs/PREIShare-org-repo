@@ -11,7 +11,7 @@ export const Route = createFileRoute('/dashboard/listings/')({
 })
 
 function ListingsLoading() {
-  return <p className="text-sm text-slate-600">Loading your listings…</p>
+  return <p className="text-sm text-[var(--sea-ink-soft)]">Loading your listings…</p>
 }
 
 function ListingsLoadError({ error }: { error: unknown }) {
@@ -45,7 +45,7 @@ function ListingsIndexPage() {
         <h1 id="listings-heading" className="text-2xl font-semibold text-slate-900">
           Your property listings
         </h1>
-        <p className="text-sm text-slate-600">
+        <p className="text-sm text-[var(--sea-ink-soft)]">
           No properties yet. Add your first listing to get started.
         </p>
         <Link

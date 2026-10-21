@@ -14,7 +14,7 @@ export type HeaderProps = {
 export function Header({ title = 'Dashboard', actions }: HeaderProps) {
   return (
     <header
-      className="flex items-center justify-between gap-4 border-b border-slate-200 bg-white px-4 py-3"
+      className="flex items-center justify-between gap-4 border-b border-[var(--line)] bg-[var(--header-bg)] px-4 py-3 backdrop-blur-lg"
       role="banner"
     >
       <div className="flex min-w-0 items-center gap-3">
@@ -22,7 +22,7 @@ export function Header({ title = 'Dashboard', actions }: HeaderProps) {
           P
         </div>
         <div className="min-w-0">
-          <p className="truncate text-sm font-semibold text-slate-900">PREIshare</p>
+          <p className="truncate text-sm font-semibold text-slate-600">PREIshare</p>
           <p className="truncate text-xs text-slate-500">{title}</p>
         </div>
       </div>

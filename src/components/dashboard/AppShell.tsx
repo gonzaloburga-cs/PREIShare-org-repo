@@ -16,7 +16,7 @@ export type AppShellProps = {
  */
 export function AppShell({ children, title, actions }: AppShellProps) {
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 text-slate-900">
+    <div className="flex min-h-screen flex-col bg-transparent text-slate-900">
       <Header
         {...(title !== undefined ? { title } : {})}
         {...(actions !== undefined ? { actions } : {})}
@@ -25,7 +25,7 @@ export function AppShell({ children, title, actions }: AppShellProps) {
 
       <div className="flex min-h-0 flex-1">
         <aside
-          className="hidden w-60 shrink-0 border-r border-slate-200 bg-white md:block"
+          className="hidden w-60 shrink-0 border-r border-[var(--line)] bg-transparent md:block"
           aria-label="Dashboard sidebar"
         >
           <Sidebar />

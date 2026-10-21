@@ -10,7 +10,7 @@ function DealsPage() {
       <h2 id="deals-heading" className="text-xl font-semibold">
         Deals
       </h2>
-      <p className="mt-2 max-w-prose text-slate-600">
+      <p className="mt-2 max-w-prose text-[var(--sea-ink-soft)]">
         Listing rows will appear here.
       </p>
     </section>

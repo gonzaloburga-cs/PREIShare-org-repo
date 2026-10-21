@@ -36,7 +36,7 @@ function DashboardLayout() {
           type="button"
           onClick={onSignOut}
           disabled={pending}
-          className="rounded-md border border-slate-300 px-3 py-1.5 text-sm text-slate-700"
+          className="rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-600"
         >
           {pending ? 'Signing out…' : 'Sign out'}
         </button>

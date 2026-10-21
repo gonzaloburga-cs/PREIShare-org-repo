@@ -10,7 +10,7 @@ function ProfilePage() {
       <h2 id="profile-heading" className="text-xl font-semibold">
         Profile
       </h2>
-      <p className="mt-2 max-w-prose text-slate-600">
+      <p className="mt-2 max-w-prose text-[var(--sea-ink-soft)]">
         A sample profile will appear here.
       </p>
     </section>

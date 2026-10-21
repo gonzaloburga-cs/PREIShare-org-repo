@@ -42,7 +42,7 @@ export function RecentActivity({
 }: RecentActivityProps) {
   return (
     <section
-      className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+      className="w-full rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
       aria-labelledby="recent-activity-heading"
     >
       <h2 id="recent-activity-heading" className="text-lg font-semibold text-slate-900">
@@ -51,7 +51,7 @@ export function RecentActivity({
       {items.length === 0 ? (
         <p className="mt-4 text-sm text-slate-600">{emptyMessage}</p>
       ) : (
-        <ul className="mt-4 space-y-3">
+        <ul className="mt-4 grid gap-3 sm:grid-cols-3">
           {items.map((item) => (
             <li key={item.id} className="border-l-2 border-slate-200 pl-3">
               <p className="text-xs text-slate-500">{item.timestamp}</p>

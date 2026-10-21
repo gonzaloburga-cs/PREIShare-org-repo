@@ -31,7 +31,7 @@ export function PortfolioSummary({
 }: PortfolioSummaryProps) {
   return (
     <section
-      className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
+      className="h-full rounded-lg border border-slate-200 bg-white p-4 shadow-sm"
       aria-labelledby="portfolio-summary-heading"
     >
       <h2 id="portfolio-summary-heading" className="text-lg font-semibold text-slate-900">
