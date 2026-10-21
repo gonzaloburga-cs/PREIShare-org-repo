@@ -2,7 +2,12 @@ import { Link } from '@tanstack/react-router'
 
 export type SidebarItem = {
   label: string
-  to: '/dashboard' | '/dashboard/portfolio' | '/dashboard/deals' | '/dashboard/profile'
+  to:
+    | '/dashboard'
+    | '/dashboard/portfolio'
+    | '/dashboard/deals'
+    | '/dashboard/profile'
+    | '/dashboard/listings'
 }
 
 /** Labels and paths from docs/dashboard-routing-plan.md */
@@ -10,6 +15,7 @@ export const dashboardSidebarItems: readonly SidebarItem[] = [
   { label: 'Home', to: '/dashboard' },
   { label: 'Portfolio', to: '/dashboard/portfolio' },
   { label: 'Deals', to: '/dashboard/deals' },
+  { label: 'Listings', to: '/dashboard/listings' },
   { label: 'Profile', to: '/dashboard/profile' },
 ]
 

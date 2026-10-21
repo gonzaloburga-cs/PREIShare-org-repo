@@ -57,6 +57,9 @@ No `apps/`, `packages/`, or `.github/` directories exist at the root.
   - `src/routes/about.tsx` — about page (`/about`)
   - `src/routes/auth/login.tsx` — sponsor log in (`/auth/login`)
   - `src/routes/auth/signup.tsx` — sponsor sign up (`/auth/signup`)
+  - `src/routes/dashboard/listings/index.tsx` — signed-in sponsor's listings (`/dashboard/listings`)
+  - `src/routes/dashboard/listings/new.tsx` — create a listing (`/dashboard/listings/new`)
+  - `src/components/listings/` — `ListingCard.tsx` and `ListingForm.tsx` (presentational; no secrets)
   - `src/components/` — `Header.tsx`, `Footer.tsx`, `ThemeToggle.tsx`
   - `src/styles.css` — Tailwind / global styles
   - `src/lib/user.ts` — stub `getUser()` that returns `null`
