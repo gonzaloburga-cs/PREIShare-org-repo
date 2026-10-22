@@ -8,6 +8,7 @@ export type SidebarItem = {
     | '/dashboard/deals'
     | '/dashboard/profile'
     | '/dashboard/listings'
+    | '/dashboard/properties'
 }
 
 /** Labels and paths from docs/dashboard-routing-plan.md */
@@ -16,6 +17,7 @@ export const dashboardSidebarItems: readonly SidebarItem[] = [
   { label: 'Portfolio', to: '/dashboard/portfolio' },
   { label: 'Deals', to: '/dashboard/deals' },
   { label: 'Listings', to: '/dashboard/listings' },
+  { label: 'Properties', to: '/dashboard/properties' },
   { label: 'Profile', to: '/dashboard/profile' },
 ]
 
