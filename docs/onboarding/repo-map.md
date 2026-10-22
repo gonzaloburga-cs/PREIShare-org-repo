@@ -61,6 +61,7 @@ No `apps/`, `packages/`, or `.github/` directories exist at the root.
   - `src/routes/dashboard.tsx` — dashboard layout; sends visitors without a session to `/login`
   - `src/routes/dashboard/listings/index.tsx` — signed-in sponsor's listings (`/dashboard/listings`)
   - `src/routes/dashboard/properties.tsx` — sponsor properties loaded with the session server client (`/dashboard/properties`)
+  - `src/routes/dashboard/properties.new.tsx` — create a property owned by the signed-in sponsor (`/dashboard/properties/new`)
   - `src/routes/dashboard/listings/new.tsx` — create a listing (`/dashboard/listings/new`)
   - `src/components/listings/` — `ListingCard.tsx` and `ListingForm.tsx` (presentational; no secrets)
   - `src/components/` — `Header.tsx`, `Footer.tsx`, `ThemeToggle.tsx`

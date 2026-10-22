@@ -1,6 +1,6 @@
 // Sponsor property list. The query uses the session server client and does not
 // filter by sponsor id in React. Postgres RLS (owner_id = auth.uid()) limits rows.
-import { Link, createFileRoute, redirect } from '@tanstack/react-router'
+import { Link, Outlet, createFileRoute, redirect, useChildMatches } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import type { ListingStatus } from '../../lib/supabase/types'
 
@@ -74,18 +74,31 @@ function formatWhen(value: string): string {
 }
 
 function PropertiesPage() {
+  const childMatches = useChildMatches()
   const { properties, error } = Route.useLoaderData()
+
+  if (childMatches.length > 0) {
+    return <Outlet />
+  }
 
   return (
     <section className="flex flex-col gap-4" aria-labelledby="properties-heading">
-      <header className="flex flex-col gap-1">
-        <h1 id="properties-heading" className="text-2xl font-semibold text-slate-900">
-          Your properties
-        </h1>
-        <p className="text-sm text-[var(--sea-ink-soft)]">
-          Listings you are allowed to manage. The database only returns rows
-          owned by the signed-in sponsor.
-        </p>
+      <header className="flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-col gap-1">
+          <h1 id="properties-heading" className="text-2xl font-semibold text-slate-900">
+            Your properties
+          </h1>
+          <p className="text-sm text-[var(--sea-ink-soft)]">
+            Listings you are allowed to manage. The database only returns rows
+            owned by the signed-in sponsor.
+          </p>
+        </div>
+        <Link
+          to="/dashboard/properties/new"
+          className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white"
+        >
+          Add property
+        </Link>
       </header>
 
       {error ? (
@@ -102,10 +115,10 @@ function PropertiesPage() {
             account only.
           </p>
           <Link
-            to="/dashboard/listings/new"
+            to="/dashboard/properties/new"
             className="w-fit rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white"
           >
-            Add listing
+            Add property
           </Link>
         </div>
       ) : null}

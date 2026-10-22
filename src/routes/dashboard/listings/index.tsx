@@ -48,12 +48,20 @@ function ListingsIndexPage() {
         <p className="text-sm text-[var(--sea-ink-soft)]">
           No properties yet. Add your first listing to get started.
         </p>
-        <Link
-          to="/dashboard/listings/new"
-          className="w-fit rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white"
-        >
-          Add listing
-        </Link>
+        <div className="flex flex-wrap gap-2">
+          <Link
+            to="/dashboard/listings/new"
+            className="w-fit rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white"
+          >
+            Add listing
+          </Link>
+          <Link
+            to="/dashboard/properties/new"
+            className="w-fit rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900"
+          >
+            Add property
+          </Link>
+        </div>
       </section>
     )
   }
@@ -64,12 +72,20 @@ function ListingsIndexPage() {
         <h1 id="listings-heading" className="text-2xl font-semibold text-slate-900">
           Your property listings
         </h1>
-        <Link
-          to="/dashboard/listings/new"
-          className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white"
-        >
-          Add listing
-        </Link>
+        <div className="flex flex-wrap gap-2">
+          <Link
+            to="/dashboard/listings/new"
+            className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white"
+          >
+            Add listing
+          </Link>
+          <Link
+            to="/dashboard/properties/new"
+            className="rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900"
+          >
+            Add property
+          </Link>
+        </div>
       </header>
       <ul className="m-0 grid list-none gap-3 p-0">
         {result.listings.map((listing) => (
