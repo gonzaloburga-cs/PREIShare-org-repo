@@ -56,7 +56,9 @@ No `apps/`, `packages/`, or `.github/` directories exist at the root.
   - `src/routeTree.gen.ts` — generated route tree (do not edit by hand)
   - `src/routes/__root.tsx` — root HTML shell, Header, Footer, CSS
   - `src/routes/index.tsx` — home page (`/`)
+  - `src/routes/api/properties/search.ts` — POST `/api/properties/search`; ranks sample properties on the server
   - `src/routes/about.tsx` — about page (`/about`)
+  - `src/routes/search.tsx` — property search page (`/search`); shows the API order and score
   - `src/routes/login.tsx` — sponsor sign in (`/login`)
   - `src/routes/auth/login.tsx` — sponsor log in (`/auth/login`)
   - `src/routes/auth/signup.tsx` — sponsor sign up (`/auth/signup`)
