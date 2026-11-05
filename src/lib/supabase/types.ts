@@ -93,7 +93,21 @@ export type Database = {
       }
     }
     Views: Record<string, never>
-    Functions: Record<string, never>
+    Functions: {
+      match_properties: {
+        Args: {
+          query_embedding: string
+          match_count?: number
+        }
+        Returns: {
+          id: string
+          title: string
+          description: string
+          location: string | null
+          similarity: number
+        }[]
+      }
+    }
     Enums: Record<string, never>
     CompositeTypes: Record<string, never>
   }
