@@ -1,0 +1,61 @@
+{
+  "_comment": "Columns match public.properties in supabase/migrations/20250315000000_enable_pgvector_properties.sql. id is a stable uuid so the seed can upsert. embedding is not stored here; the seed script generates it. Copy matches docs/sample-properties.md. The word cabin is absent on purpose.",
+  "properties": [
+    {
+      "id": "a1111111-1111-4111-8111-000000000001",
+      "title": "Stillwater cottage",
+      "description": "A two-bedroom cottage sits on a still lake. Most summer weekends are booked by guests, and those nightly stays have covered the mortgage for three seasons.",
+      "location": "North shore lane",
+      "price_usd": 425000
+    },
+    {
+      "id": "a1111111-1111-4111-8111-000000000002",
+      "title": "Pine bench cottage",
+      "description": "A small cottage stands in a dry pine grove. The road ends at the property, neighbors are distant, and nights pass with little traffic.",
+      "location": "Pine bench",
+      "price_usd": 340000
+    },
+    {
+      "id": "a1111111-1111-4111-8111-000000000003",
+      "title": "Maple cul-de-sac house",
+      "description": "A three-bedroom house sits on a dead-end street. An elementary campus is two blocks away, the yard is fenced, and a playground sits at the corner.",
+      "location": "Maple glen",
+      "price_usd": 389000
+    },
+    {
+      "id": "a1111111-1111-4111-8111-000000000004",
+      "title": "Baker street flat",
+      "description": "A one-bedroom flat sits above a corner bakery in the city center. Cafes and dinner spots line the same block, and residents walk to work.",
+      "location": "Baker street",
+      "price_usd": 510000
+    },
+    {
+      "id": "a1111111-1111-4111-8111-000000000005",
+      "title": "Lantern row duplex",
+      "description": "A side-by-side duplex holds two occupied units. Both households have renewed for another year, and the combined monthly payments cover the loan with money left over.",
+      "location": "Lantern row",
+      "price_usd": 360000
+    },
+    {
+      "id": "a1111111-1111-4111-8111-000000000006",
+      "title": "Neon alley loft",
+      "description": "A studio loft sits above a downtown nightclub. Music runs past midnight, crowds fill the sidewalk, and the street stays loud until the bars close.",
+      "location": "Neon alley",
+      "price_usd": 275000
+    },
+    {
+      "id": "a1111111-1111-4111-8111-000000000007",
+      "title": "Harbor office loft",
+      "description": "A commercial loft stands beside a working harbor. Weekday tenants run a small shipping desk. The space is loud at dawn when boats load.",
+      "location": "Working harbor",
+      "price_usd": 890000
+    },
+    {
+      "id": "a1111111-1111-4111-8111-000000000008",
+      "title": "Hay acreage",
+      "description": "Open acreage is used for hay and cattle. There is no house on the parcel. Access is a county road.",
+      "location": "County road 12",
+      "price_usd": 710000
+    }
+  ]
+}

@@ -61,6 +61,36 @@ export type Database = {
         }
         Relationships: []
       }
+      properties: {
+        Row: {
+          id: string
+          title: string
+          description: string
+          location: string | null
+          price_usd: number | null
+          embedding: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          title: string
+          description: string
+          location?: string | null
+          price_usd?: number | null
+          embedding?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          title?: string
+          description?: string
+          location?: string | null
+          price_usd?: number | null
+          embedding?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: Record<string, never>
     Functions: Record<string, never>
