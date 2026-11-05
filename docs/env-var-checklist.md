@@ -12,6 +12,8 @@ Names and placeholders only. No real project URL and no real key. `.env.example`
 | `VITE_SUPABASE_ANON_KEY` | Client-safe | Public anon or publishable key (`your-anon-key-here`). It is safe in the browser only because row-level security still limits what it can do. |
 | `SUPABASE_URL` | Server-only | Same project URL, without a `VITE_` prefix, for server code. Login checks this name first, then `VITE_SUPABASE_URL`. |
 | `SUPABASE_SERVICE_ROLE_KEY` | Server-only | Service-role key (`your-service-role-key-here`). It bypasses row-level security. It must not be imported into browser code or shared React components. |
+| `EMBEDDING_API_KEY` | Server-only | Provider key for `src/lib/embeddings/generate.ts`. No `VITE_` prefix. The module is marked server-only. |
+| `EMBEDDING_MODEL` | Server-only | Optional model name. When unset, generation uses `text-embedding-3-small` so the list length stays 1536. |
 
 ## Before you commit
 
