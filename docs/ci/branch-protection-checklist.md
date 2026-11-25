@@ -55,3 +55,36 @@ The workflow runs on `pull_request` to `main` for `opened`, `synchronize`, and `
 ## Notes for Sprint 6 handoff
 
 A red required check should block merge. A green check means install, typecheck, build, lint, and test passed. It does not mean product review is done. Learners who cannot change repository settings stop after this checklist is written and reviewed.
+
+## Enforcement record
+
+This section was added after the existing checklist. The sections above stay in this file. They describe the rules we intended. This section records what GitHub actually saved. Branch protection is a GitHub website setting, not code. Writing this file does not turn a rule on. A rule that did not save is not enforced. Do not describe it as on.
+
+- Date: 2026-11-25
+- GitHub user who tried: gonzaloburga-cs
+- Repository visibility seen on the repo page: public
+- Could open Settings and change rules: yes, I am an admin
+- Screen used: ruleset
+- Branch name pattern: main
+- Paid upgrade: No paid GitHub upgrade was purchased.
+
+### Intended rules versus what saved
+
+Approver role: Gonzalo Burga (`gonzaloburga-cs`), the human reviewer. Merger role: Gonzalo Burga (`gonzaloburga-cs`), the maintainer. Those two jobs are the same person. Approval count from `docs/ci/pr-approval-roles.md`: at least 1. The AI assistant is not an approver.
+
+- Require a pull request before merging. Wanted: yes. Result: saved. What I saw after refresh: the branch ruleset was Enabled, and this rule was still saved.
+- Human approvals before merge. Count and approver roles from `docs/ci/pr-approval-roles.md`: at least 1 approval from Gonzalo Burga (`gonzaloburga-cs`), the human reviewer. The AI assistant is not an approver. Result: saved. What I saw after refresh: the branch ruleset was Enabled, and this approval requirement was still saved.
+- Required status check from the existing workflow `.github/workflows/pr-ci.yml`. Exact check name selected: `Install, typecheck, build, lint, and test`. No new workflow was added. Result: saved. What I saw after refresh: that check name was the one selected, and the requirement was still saved on the Enabled ruleset.
+- Who may merge, from `docs/ci/pr-approval-roles.md`: Gonzalo Burga (`gonzaloburga-cs`), the maintainer. Did GitHub limit merge to those people? could not set. This limit is not enforced by GitHub.
+
+### Gaps
+
+The three rules that were attempted — require a pull request, at least one human approval, and the status check `Install, typecheck, build, lint, and test` — saved, and the ruleset was Enabled after refresh.
+
+- Restricting who can merge was not set. The ruleset screen did not get a limit to Gonzalo Burga (`gonzaloburga-cs`). GitHub does not enforce that limit.
+- `docs/ci/pr-approval-roles.md` says Gonzalo Burga must not be the only human who approves, or merge alone, when the change touches privacy, sign-in, or money. That limit was not saved in GitHub. It is not enforced by the ruleset.
+- “Require branches to be up to date before merging” is an intended rule in the checklist above. It was not reported as saved after refresh. This record does not treat it as enforced.
+
+### What humans still do
+
+People still follow `docs/ci/human-judgment-checklist.md` and `docs/ci/ai-review-orchestration.md` before merge, including when GitHub did not save the rule. The sample review in `docs/ci/sample-pr-review/critique-and-prompt-revision.md` is advice only and is not a required status check. The AI assistant does not approve or merge. The existing pr-ci workflow remains the only automated check this record tried to require.
